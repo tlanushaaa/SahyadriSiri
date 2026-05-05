@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sahyadrisiri">
+
+    <application
+        android:allowBackup="true"
+        android:label="SahyadriSiri"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SahyadriSiri">
+
+        <!-- 🔑 PASTE API KEY HERE -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBb9zpdTtusvOaW8iQ6NH4B59eP"/>
+
+        <!-- Activities -->
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ReportActivity" />
+        <activity android:name=".ViewActivity" />
+        <activity android:name=".MapsActivity" />
+
+    </application>
+
+</manifest>

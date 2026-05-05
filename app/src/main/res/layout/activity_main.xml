@@ -1,0 +1,49 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    android:background="#F1F8E9">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🌿 Sahyadri Siri"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#1B5E20"
+        android:layout_marginBottom="40dp"/>
+
+    <!-- Report Button -->
+    <Button
+        android:id="@+id/btnReport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Report Water Source"
+        android:backgroundTint="#388E3C"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="15dp"/>
+
+    <!-- View Button -->
+    <Button
+        android:id="@+id/btnView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Reports"
+        android:backgroundTint="#1976D2"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="15dp"/>
+
+    <!-- Map Button (NEW) -->
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Map"
+        android:backgroundTint="#6A1B9A"
+        android:textColor="#FFFFFF"/>
+
+</LinearLayout>
