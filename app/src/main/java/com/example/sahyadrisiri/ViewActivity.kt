@@ -1,9 +1,13 @@
 package com.example.sahyadrisiri
 
+import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import com.example.sahyadrisiri.R
 
 class ViewActivity : AppCompatActivity() {
 
@@ -11,34 +15,74 @@ class ViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view)
 
-        val sharedPref = getSharedPreferences("WaterData", MODE_PRIVATE)
-        val reports = sharedPref.getString("reports", "No data available")
-
-        val reportList = findViewById<TextView>(R.id.reportList)
+        val reportsContainer = findViewById<LinearLayout>(R.id.reportsContainer)
         val clearBtn = findViewById<Button>(R.id.clearBtn)
 
-        val lines = reports?.split("\n") ?: listOf()
+        val sharedPref = getSharedPreferences("WaterData", MODE_PRIVATE)
+        val reports = sharedPref.getString("reports", "") ?: ""
 
-        val coloredText = StringBuilder()
+        if (reports.isNotEmpty()) {
 
-        for (line in lines) {
-            if (line.contains("Clean", true)) {
-                coloredText.append("<font color='#2E7D32'>$line</font><br>")
-            } else if (line.contains("Polluted", true)) {
-                coloredText.append("<font color='#C62828'>$line</font><br>")
-            } else {
-                coloredText.append("$line<br>")
+            val reportLines = reports.split("\n")
+
+            for (line in reportLines.reversed()) {
+
+                if (line.isNotBlank()) {
+
+                    val card = CardView(this)
+                    val params = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    )
+
+                    params.setMargins(0, 0, 0, 24)
+
+                    card.layoutParams = params
+                    card.radius = 24f
+                    card.cardElevation = 8f
+                    card.setContentPadding(24, 24, 24, 24)
+
+                    val textView = TextView(this)
+
+                    textView.text = line
+                    textView.textSize = 18f
+                    textView.setLineSpacing(1.2f, 1.2f)
+
+                    when {
+                        line.contains("polluted", true) ||
+                                line.contains("dirty", true) -> {
+                            textView.setTextColor(Color.parseColor("#C62828"))
+                        }
+
+                        line.contains("clean", true) -> {
+                            textView.setTextColor(Color.parseColor("#2E7D32"))
+                        }
+
+                        else -> {
+                            textView.setTextColor(Color.BLACK)
+                        }
+                    }
+
+                    card.addView(textView)
+
+                    reportsContainer.addView(card)
+                }
             }
+
+        } else {
+
+            val emptyText = TextView(this)
+            emptyText.text = "No reports available"
+            emptyText.textSize = 18f
+
+            reportsContainer.addView(emptyText)
         }
 
-        reportList.text = android.text.Html.fromHtml(coloredText.toString())
         clearBtn.setOnClickListener {
 
-            val editor = sharedPref.edit()
-            editor.clear()
-            editor.apply()
+            sharedPref.edit().clear().apply()
 
-            reportList.text = "No data available"
+            recreate()
         }
     }
 }
