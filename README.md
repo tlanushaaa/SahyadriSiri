@@ -148,13 +148,13 @@ AndroidManifest.xml
 # 📸 Screenshots
 
 ## Home Screen
-![Home Screen](home.jpeg)
+![Home Screen](home.jpg)
 
 ## Report Submission Screen
-![Report Screen](report.jpeg)
+![Report Screen](report.jpg)
 
 ## Community Reports Screen
-![Community Reports](community.jpeg)
+![Community Reports](community.jpg)
 
 ## Google Maps Screen
 ![Maps Screen](maps.jpg)
