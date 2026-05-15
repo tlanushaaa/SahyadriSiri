@@ -143,20 +143,19 @@ AndroidManifest.xml
 
 # 📸 Screenshots
 
+# 📸 Screenshots
+
 ## Home Screen
-(Add Screenshot Here)
+![Home Screen](home.jpg)
 
 ## Report Submission Screen
-(Add Screenshot Here)
+![Report Screen](report.jpg)
 
 ## Community Reports Screen
-(Add Screenshot Here)
+![Community Reports](community.jpg)
 
 ## Google Maps Screen
-(Add Screenshot Here)
-
-## Dynamic Markers
-(Add Screenshot Here)
+![Maps Screen](maps.jpg)
 
 ---
 
