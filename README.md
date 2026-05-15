@@ -143,10 +143,6 @@ AndroidManifest.xml
 
 # 📸 Screenshots
 
-# 📸 Screenshots
-
-# 📸 Screenshots
-
 ## Home Screen
 ![Home Screen](home.jpg)
 
